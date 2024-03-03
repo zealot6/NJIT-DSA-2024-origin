@@ -31,18 +31,37 @@ public class Grades {
        5. Fix the issue.
        6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java, as instructed in the readme file.
       */
-      int i = 0;
-      while (i <= grades.length/2) {
-         int temp = grades[i];
-         grades[i] = grades[grades.length-i-1];
-         grades[grades.length-i-1] = temp;
-         i++;
-     }
+      int left = 0;
+      int right = grades.length - 1;
+      while (left < right) {
+          int temp = grades[left];
+          grades[left] = grades[right];
+          grades[right] = temp;
+          left++;
+          right--;
+      }
    }
 
    /**
     * Sorts the array to ascending order.
     */
+    public static void insertionSort(Integer[] grades) {
+      if (grades == null || grades.length <= 1) {
+          return;
+      }
+
+      for (int i = 1; i < grades.length; i++) {
+          int score = grades[i];
+          int j = i - 1;
+
+          while (j >= 0 && grades[j] > score) {
+              grades[j + 1] = grades[j];
+              j--;
+          }
+
+          grades[j + 1] = score;
+      }
+  }
    public void sort() {
       /* TODO:
        1. Edit the test data files to see if the sort() really works or not.
@@ -52,15 +71,7 @@ public class Grades {
        5. Fix the issue.
        6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java as instructed in the readme file.
       */
-      int i = grades.length-1;
-      while (i > 0) {
-         if (grades[i] < grades[i-1]) {
-            int tmp = grades[i];
-            grades[i] = grades[i-1];
-            grades[i-1] = tmp;
-         }
-         i--;
-      }
+
    }
 
    /**
