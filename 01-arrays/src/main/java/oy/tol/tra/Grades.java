@@ -45,21 +45,21 @@ public class Grades {
    /**
     * Sorts the array to ascending order.
     */
-    public static void insertionSort(Integer[] grades) {
-      if (grades == null || grades.length <= 1) {
+    public static void insertionSort(Integer[] grade) {
+      if (grade == null || grade.length <= 1) {
           return;
       }
 
-      for (int i = 1; i < grades.length; i++) {
-          int score = grades[i];
+      for (int i = 1; i < grade.length; i++) {
+          int score = grade[i];
           int j = i - 1;
 
-          while (j >= 0 && grades[j] > score) {
-              grades[j + 1] = grades[j];
+          while (j >= 0 && grade[j] > score) {
+              grade[j + 1] = grade[j];
               j--;
           }
 
-          grades[j + 1] = score;
+          grade[j + 1] = score;
       }
   }
    public void sort() {
@@ -71,7 +71,7 @@ public class Grades {
        5. Fix the issue.
        6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java as instructed in the readme file.
       */
-
+      insertionSort(grades);
    }
 
    /**
