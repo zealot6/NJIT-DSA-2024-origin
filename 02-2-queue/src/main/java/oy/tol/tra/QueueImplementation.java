@@ -15,18 +15,13 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    private Object [] itemArray;
    private int capacity;
-   private int currentIndex = -1;
-   private static final int DEFAULT_STACK_SIZE = 10;
-   private int top=-1;
-
+   private static final int MIN_QUEUE_SIZE = 10;
+   private static final int MAX_QUEUE_SIZE = 100;
+   private static int toAdd = 0;
    /**
     * Allocates a stack with a default capacity.
     * @throws StackAllocationException
     */
-   public StackImplementation() throws StackAllocationException {
-      // TODO: call the constructor with size parameter with default size of 10.
-      this.capacity=DEFAULT_STACK_SIZE;   
-   }
    
    /** TODO: Implement so that
     * - if the size is less than 2, throw StackAllocationException
@@ -61,7 +56,7 @@ public class StackImplementation<E> implements StackInterface<E> {
    }
 
    @Override
-   public void push(E element) throws StackAllocationException, NullPointerException {
+   public void enqueue(E element) throws QueueAllocationException, NullPointerException {
       // TODO: Implement this
          if(element==null)
          {
@@ -90,7 +85,7 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    @SuppressWarnings("unchecked")
    @Override
-   public E pop() throws StackIsEmptyException {
+   public E dequeue() throws QueueIsEmptyException{
       if(top==-1)
       {
           throw new StackIsEmptyException("Stack is empty");
