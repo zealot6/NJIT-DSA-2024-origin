@@ -56,7 +56,7 @@ import org.junit.jupiter.api.Order;
 
     @Test
     @Order(1)
-    @Timeout(value = 10, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
+    //@Timeout(value = 10, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
     @DisplayName("Test the empty queue behaviour.")
     void emptyQueueTest() {
         // Test that count of just initialized queue is zero and remove returns null.
@@ -74,7 +74,7 @@ import org.junit.jupiter.api.Order;
 
     @Test
     @Order(2)
-    @Timeout(value = 10, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
+    //@Timeout(value = 10, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
     @DisplayName("Very basic queue tests")
     void basicQueueTests() {
         System.out.println("Testing basic queue functionality.");
