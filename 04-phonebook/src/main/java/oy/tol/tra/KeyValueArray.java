@@ -91,11 +91,18 @@ public class KeyValueArray<K extends Comparable<K>, V> implements Dictionary<K,V
 
    @Override
    public void compress() throws OutOfMemoryError {
-      // First partition the null's to the end of the array.
+      if (count == 0) {
+          // 数组为空的情况，可以根据实际需求进行处理
+          return;
+      }
+  
       int indexOfFirstNull = Algorithms.partitionByRule(pairs, count, element -> element == null);
-      // Then reallocate using the index from partitioning, pointing the first null in the array.
-      reallocate(indexOfFirstNull);
-   }
+  
+      if (indexOfFirstNull > pairs.length ) {
+          reallocate(indexOfFirstNull*2);
+      }
+  }
+  
 
    @java.lang.SuppressWarnings("unchecked")
    private void reallocate(int newSize) throws OutOfMemoryError {

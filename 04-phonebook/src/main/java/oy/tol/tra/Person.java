@@ -39,11 +39,21 @@ public class Person implements Comparable<Person> {
      */
     @Override
     public int hashCode() {
+       
+        return djb2Hash(getFullName());
+    }
+    public static int djb2Hash(String str) {
         int hash = 5381;
-        // Implement hash function here.
+
+        for (int i = 0; i < str.length(); i++) {
+            
+            
+            hash = ((hash << 5) + hash) + str.charAt(i); // hash * 33 + char
+            
+        }
+
         return hash;
     }
-
     @Override
     public boolean equals(Object other) {
         if (other instanceof Person) {
@@ -51,6 +61,7 @@ public class Person implements Comparable<Person> {
         }
         return false;
     }
+   
 
     /**
      * Compares two persons, this and the other one.
