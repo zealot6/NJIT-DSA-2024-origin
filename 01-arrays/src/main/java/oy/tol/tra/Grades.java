@@ -23,45 +23,10 @@ public class Grades {
     * The method to reverse the internal Java int array.
     */
    public void reverse() {
-      /* TODO:
-       1. Edit the test data files to see if the reverse() really works or not.
-       2. Execute the IntArrayTests to see that some of them fail.
-       3. Study the code below and try to find what is the issue.
-       4. Use the debugger to see the execution and variable values if necessary.
-       5. Fix the issue.
-       6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java, as instructed in the readme file.
-      */
-      int left = 0;
-      int right = grades.length - 1;
-      while (left < right) {
-          int temp = grades[left];
-          grades[left] = grades[right];
-          grades[right] = temp;
-          left++;
-          right--;
-      }
+      Algorithms.reverse(grades);
+      
    }
 
-   /**
-    * Sorts the array to ascending order.
-    */
-    public static void insertionSort(Integer[] grade) {
-      if (grade == null || grade.length <= 1) {
-          return;
-      }
-
-      for (int i = 1; i < grade.length; i++) {
-          int score = grade[i];
-          int j = i - 1;
-
-          while (j >= 0 && grade[j] > score) {
-              grade[j + 1] = grade[j];
-              j--;
-          }
-
-          grade[j + 1] = score;
-      }
-  }
    public void sort() {
       /* TODO:
        1. Edit the test data files to see if the sort() really works or not.
@@ -71,7 +36,7 @@ public class Grades {
        5. Fix the issue.
        6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java as instructed in the readme file.
       */
-      insertionSort(grades);
+      Algorithms.sort(grades);
    }
 
    /**
