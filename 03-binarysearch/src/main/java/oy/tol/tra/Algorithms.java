@@ -42,12 +42,28 @@ public  class Algorithms{
     }
     
     
-    public static  <T extends Comparable<T>> void sort(T[]arr)
+    public static  <T extends Comparable<T>> void fastSort(T[]arr)
     {
         QuickSort(arr, 0, arr.length-1);
     }
    
-    
+    public static <T extends Comparable<T>> void sort(T [] array) {
+        if (array == null ||array.length <= 1) {
+            return;
+        }
+  
+        for (int i = 1; i < array.length; i++) {
+            T score = array[i];
+            int j = i - 1;
+  
+            while (j >= 0 && array[j].compareTo(score)>0 ) {
+                array[j + 1] = array[j];
+                j--;
+            }
+  
+            array[j + 1] = score;
+        }
+    }
     
 
 
