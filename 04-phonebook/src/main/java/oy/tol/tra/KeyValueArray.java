@@ -92,7 +92,7 @@ public class KeyValueArray<K extends Comparable<K>, V> implements Dictionary<K,V
    @Override
    public void compress() throws OutOfMemoryError {
       if (count == 0) {
-          // 数组为空的情况，可以根据实际需求进行处理
+        
           return;
       }
   
