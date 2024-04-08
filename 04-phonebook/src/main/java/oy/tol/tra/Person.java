@@ -40,18 +40,18 @@ public class Person implements Comparable<Person> {
     @Override
     public int hashCode() {
        
-        return djb2Hash(getFullName());
+        return customStringHash(getFullName());
     }
-    public static int djb2Hash(String str) {
-        int hash = 5381;
-
+    public static int customStringHash(String str) {
+        int hash = 0;
+        int prime = 31; 
+    
+        
         for (int i = 0; i < str.length(); i++) {
-            
-            
-            hash = ((hash << 5) + hash) + str.charAt(i); // hash * 33 + char
-            
+          
+            hash = hash * prime + str.charAt(i);
         }
-
+    
         return hash;
     }
     @Override
