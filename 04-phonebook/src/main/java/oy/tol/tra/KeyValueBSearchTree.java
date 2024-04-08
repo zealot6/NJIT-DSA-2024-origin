@@ -81,7 +81,7 @@ public Pair<K, V>[] toSortedArray() {
     TreeToArrayVisitor<K, V> visitor = new TreeToArrayVisitor<>(count);
     root.accept(visitor);
     Pair<K, V>[] sorted = visitor.getArray();
-    Algorithms.mergeSort(sorted);
+    Algorithms.fastSort(sorted);
     return sorted;
 }
 
@@ -97,20 +97,4 @@ public V find(K key) {
         // structures.
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 }
